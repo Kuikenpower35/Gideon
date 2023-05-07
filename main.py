@@ -58,7 +58,7 @@ def main():
                                     f.write(audio.get_wav_data())
 
                             text = transcribe_audio_to_text(filename)
-                            if text.lower() == "thank you gideon":
+                            if text.lower() == "thank you gideon" and transcription is not None:
                                 print(f"You said: {text}")
                                 Bye = "Have a nice day sir."
                                 print(Bye)
