@@ -3,7 +3,7 @@ import pyttsx3
 import speech_recognition as sr
 import time
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 engine = pyttsx3.init()
 
@@ -13,9 +13,14 @@ def transcribe_audio_to_text(filename):
     with sr.AudioFile(filename) as source:
         audio = recognizer.record(source)
         try:
-            return recognizer.recognize_google(audio)
+            text = recognizer.recognize_google(audio)
+            if text is not None:
+                return text
+            else:
+                return ''
         except:
             print('Skipping unknown error')
+            return ''
 
 
 def generate_response(prompt):
